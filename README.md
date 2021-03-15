@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+
+# Stripe Payment Modal React Demo
+
+This sample project shows how to implement Stripe payments & subscriptions within a modal dialog using [PaymentModal](https://paymentmodal.com) and [Create React App](https://github.com/facebook/create-react-app).
+
+### Demo
+
+See a hosted version of the React sample project [here](https://react.paymentmodal.com).
+
+The hosted demo is running in Stripe test mode. Use `4242424242424242` as a test card number with any CVC + future expiration date.
+
+## Getting Started 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Installation
 
-In the project directory, you can run:
+To see the Stripe modals in action, you need to create a free [PaymentModal account](https://paymentmodal.com).
 
-### `yarn start`
+1. Create a [PaymentModal site](https://paymentmodal.com)
+2. Clone this repo
+3. In the project directory, run `cp .env.sample .env`
+4. Open `.env` and update `REACT_APP_PAYMENT_MODAL_SITE_ID` with your [PaymentModal site id](https://paymentmodal.com)
+5. Run `yarn` to download npm packages
+6. Run `yarn start` to open the React app in development mode
+7. Open [http://localhost:3000](http://localhost:3000) to view it in the browser
+8. Update the `products` array in `Demo.jsx` to use any HTML element attributes to attach click listeners to open your modals
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This sample and hosted demo project uses the following HTML element attributes, but you can use any valid [HTML selector](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors#reference_table_of_selectors). Be sure to update the selectors in your PaymentModal account.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- `buttonId` creates a modal with a Stripe payment intent using an amount.
+- `className` creates a modal with a Stripe payment intent using a Stripe price id.
+- `dataSubscriptionCheckout` creates a modal with a Stripe subscription using a Stripe price id.
 
 ## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+You can learn more about configuring Stripe modal properties in the [PaymentModal documentation](https://paymentmodal.com/docs).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+You can learn more about the React app in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-### Code Splitting
+#### Get Support
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+If you found a bug or want to suggest a new [feature/use case/sample], please [file an issue](https://github.com/funnelkake/stripe-payment-modal-react-example/issues).
 
-### Analyzing the Bundle Size
+If you have questions, comments, or need help with the code, we're here to help:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+on Twitter at [@paymentmodal](https://twitter.com/paymentmodal)
+on Stack Overflow at the stripe-payment-modal tag
+by [email](mailto:support@paymentmodal.com?subject=[GitHub]%20Source%20React%20Demo)
