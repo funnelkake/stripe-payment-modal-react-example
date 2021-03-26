@@ -10,6 +10,9 @@ import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import InputLabel from "@material-ui/core/InputLabel";
+import Select from "@material-ui/core/Select";
+import MenuItem from "@material-ui/core/MenuItem";
 import ScriptTag from "react-script-tag";
 
 const useStyles = makeStyles((theme) => ({
@@ -54,6 +57,7 @@ const products = [
     buttonText: "Open Modal",
     buttonId: "pm-payment-amount",
     buttonVariant: "outlined",
+    openModalSelector: "#pm-payment-amount",
   },
   {
     title: "Payment w/ PriceId",
@@ -62,6 +66,7 @@ const products = [
     buttonText: "Open Modal",
     className: "pm-payment-stripeid",
     buttonVariant: "outlined",
+    openModalSelector: ".pm-payment-stripeid",
   },
   {
     title: "Subscription",
@@ -71,6 +76,7 @@ const products = [
     dataSubscriptionCheckout: "true",
     buttonVariant: "outlined",
     subscription: "true",
+    openModalSelector: "[data-subscription-checkout=\"true\"]",
   },
 ];
 
@@ -131,11 +137,38 @@ export default function Demo() {
                       </Typography>
                     )}
                   </div>
-                  <ul>
-                    <Typography variant="subtitle1" align="center">
-                      {product.description}
-                    </Typography>
-                  </ul>
+                  <Typography variant="subtitle1" align="center">
+                    {product.description}
+                  </Typography>
+                  <InputLabel htmlFor={`product_${products.indexOf(product)}`}>
+                    Quantity
+                  </InputLabel>
+                  <Select
+                    fullWidth
+                    value={product.quantity}
+                    defaultValue={1}
+                    onChange={
+                      (event) => {
+                        const openModalElement = document.querySelector(`button${product.openModalSelector}`);
+                        openModalElement.setAttribute("data-product-quantity", event.target.value);
+                      }
+                    }
+                    inputProps={{
+                      name: `product_${products.indexOf(product)}`,
+                      id: `product_${products.indexOf(product)}`
+                    }}
+                  >
+                    <MenuItem disabled>Select quantity</MenuItem>
+                    <MenuItem value={1}>
+                      1
+                    </MenuItem>
+                    <MenuItem value="2">
+                      2
+                    </MenuItem>
+                    <MenuItem value="3">
+                      3
+                    </MenuItem>
+                  </Select>
                 </CardContent>
                 <CardActions>
                   <Button
